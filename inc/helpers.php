@@ -59,7 +59,7 @@ function cf_theme_var_map( array $arr, string $arg ): array {
 
 	foreach( $arr as $key => $value ) {
 		$entry = [];
-		$entry['name'] = __( $key, 'freedomtheme' ),
+		$entry['name'] = __( $key, 'freedomtheme' );
 		$entry['slug'] = strtolower( str_replace( ' ', '-', $key ) );
 		$entry[$arg] 	 = $value;
 		$map[] = $entry;
