@@ -27,7 +27,7 @@ $container = get_theme_mod( 'cf_container_type' );
 				while ( have_posts() ) {
 					the_post();
 					get_template_part( 'loop-templates/content', 'single' );
-					understrap_post_nav();
+					cf_post_nav();
 
 					// If comments are open or we have at least one comment, load up the comment template.
 					if ( comments_open() || get_comments_number() ) {

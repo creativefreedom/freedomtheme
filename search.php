@@ -64,7 +64,7 @@ $container = get_theme_mod( 'cf_container_type' );
 			</main><!-- #main -->
 
 			<!-- The pagination component -->
-			<?php understrap_pagination(); ?>
+			<?php cf_pagination(); ?>
 
 			<!-- Do the right sidebar check -->
 			<?php get_template_part( 'global-templates/right-sidebar-check' ); ?>
