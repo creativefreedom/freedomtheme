@@ -118,6 +118,8 @@ function cf_theme_setup() {
 
 	// Setup colours
 	$colours = [
+		'coral' => '#FF7A80',
+		'blue' => '#8BBBE6',
 		'black' => '#000',
 		'white' => '#FFF',
 	];
@@ -209,8 +211,7 @@ add_action( 'login_enqueue_scripts', 'cf_login_enqueue_scripts', 20 );
 function cf_child_load_google_fonts() {
 
 	$fonts = [
-		"Bebas Neue" => [],
-		"Open Sans" => [300, 500, 700]
+		"Hind" => [300, 700]
 	];
 
 	$font_string = "";

@@ -1,0 +1,29 @@
+@each $name, $color in $colours {
+	.has-#{$name}-color {
+		color: $color;
+	}
+
+	.has-#{$name}-background,
+	.has-#{$name}-background-color {
+		background-color: $color;
+		&:not(.has-text-color) {
+			color: color-yiq($color);
+		}
+		&.is-style-coloured-card {
+			background-color: rgba($color,.9);
+		}
+	}
+  
+	.has-#{name}-border,
+	.has-#{name}-border-color {
+		border-color: $color;
+	}
+
+
+}
+
+@each $name, $size in $font-sizes {
+	.has-#{$name}-font-size {
+		font-size: $size;
+	}
+}
