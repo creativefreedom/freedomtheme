@@ -1,0 +1,13 @@
+// Reset ineffective gutenburg column break
+@media (max-width: 781px) and (min-width: 600px) {
+  .wp-block-column {
+      flex-grow: 1;
+      .wp-block-column:not(:first-child) {
+          margin-left: 32px;
+      }
+      &:not(:only-child) {
+        flex-basis: unset!important;
+
+      }
+  }
+}
