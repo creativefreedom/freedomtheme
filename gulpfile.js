@@ -193,33 +193,6 @@ class CF_Compiler {
 
 		////////////////// End Bootstrap 4 Assets /////////////////////////
 
-		// Copy all Font Awesome Fonts
-		src(`${paths.node}font-awesome/fonts/**/*.{ttf,woff,woff2,eot,svg}`)
-			.pipe(dest('./fonts'));
-
-		// Copy all Font Awesome SCSS files
-		src(`${paths.node}font-awesome/scss/*.scss`)
-			.pipe(dest(`${paths.dev}/sass/fontawesome`));
-
-		// _s SCSS files
-		src(`${paths.node}undescores-for-npm/sass/media/*.scss`)
-			.pipe(dest(`${paths.dev}/sass/underscores`));
-
-		// _s JS files into /src/js
-		src(`${paths.node}undescores-for-npm/js/skip-link-focus-fix.js`)
-			.pipe(dest(`${paths.dev}/js`));
-
-		// Copy Popper JS files
-		src(`${paths.node}popper.js/dist/umd/popper.min.js`)
-			.pipe(dest(`${paths.js}${paths.vendor}`));
-
-		src(`${paths.node}popper.js/dist/umd/popper.js`)
-			.pipe(dest(`${paths.js}${paths.vendor}`));
-
-		// FreedomTheme SCSS files
-		src(`${paths.node}understrap/sass/**/*.scss`)
-			.pipe(dest(`${paths.dev}/sass/understrap`));
-
 		return stream;
 	}
 
