@@ -28,10 +28,3 @@ function cf_block_editor( $hook ) {
 }
 
 add_action('enqueue_block_editor_assets', 'cf_block_editor');
-
-// frontend and editor scripts
-function cf_frontend_editor( $hook ) {
-	cf_enqueue_style( 'cf-block-variants-css', get_stylesheet_directory_uri() . '/inc/assets/cf-block-variants.css' );
-}
-
-add_action('enqueue_block_assets', 'cf_frontend_editor');
