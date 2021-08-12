@@ -17,6 +17,7 @@ $cf_includes = array(
 	'/setup.php',                           // Theme setup and custom theme supports.
 	'/helpers.php',                         // Add helper functions.
 	'/widgets.php',                         // Register widget area.
+	'/blocks.php',                         // Register widget area.
 	'/enqueue.php',                         // Enqueue scripts and styles.
 	'/template-tags.php',                   // Custom template tags for this theme.
 	'/pagination.php',                      // Custom pagination for this theme.
