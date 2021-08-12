@@ -22,6 +22,17 @@
 
 }
 
+@each $value in $gradients {
+
+	.has-#{nth($value,1)}-gradient-background {
+    background: linear-gradient(175deg,nth($value,2) 0%,nth($value,3) 100%);
+		&:not(.has-text-color) {
+			color: color-yiq(nth($value,2));
+		}
+	}
+	
+}
+
 @each $name, $size in $font-sizes {
 	.has-#{$name}-font-size {
 		font-size: $size;

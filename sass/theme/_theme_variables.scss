@@ -15,6 +15,14 @@ $colours: (
 $primary: $coral; 
 $secondary: $blue;
 
+// Gradients
+$gradients: (
+	('coral', #F47598, #FF9474),
+	('blue', 	#A7D9E7, #638FE1),
+	('green', #A9E993, #76BD94),
+);
+
+
 // Layout
 $grid-breakpoints: (
 	xs: 0,

@@ -128,10 +128,22 @@ function cf_theme_setup() {
 
 	// Setup gradients
 	$gradients = [
-		'Green to mauve' => 'linear-gradient(175deg,rgba(80,178,115,.8) 0%,rgba(119, 84, 114, .8) 100%)'
+		'coral' =>    ['#F47598','#FF9474'],
+		'blue' =>    ['#A7D9E7','#638FE1'],
+		'green' =>    ['#A9E993','#76BD94'],
 	];
 
-	add_theme_support( 'editor-gradient-presets', cf_theme_var_map( $gradients, 'gradient' ) );
+	foreach($gradients as $label => $colours) {
+			$gradient_map[] = array(
+					'name'     => $label,
+					'gradient' => 'linear-gradient(175deg,'.$colours[0].' 0%,'.$colours[1].' 100%)',
+					'slug'     => strtolower(str_replace(' ', '-', $label)),
+			);
+	}
+
+	if(! empty($gradient_map) ) {
+			add_theme_support( 'editor-gradient-presets', $gradient_map );
+	}
 
 	// Setup Sizes
 	$sizes = [
