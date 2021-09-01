@@ -30,11 +30,6 @@ $cf_includes = array(
 	'/editor.php',                          // Load Editor functions.
 );
 
-// Load Jetpack compatibility file if Jetpack is activiated.
-if ( class_exists( 'Jetpack' ) ) {
-	$cf_includes[] = '/jetpack.php';
-}
-
 // Include files.
 foreach ( $cf_includes as $file ) {
 	require_once $cf_inc_dir . $file;
