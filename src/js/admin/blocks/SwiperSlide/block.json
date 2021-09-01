@@ -1,0 +1,15 @@
+{
+	"apiVersion": 2,
+	"name": "cf/swiper-slide",
+  "icon": "format-image",
+	"category": "common",
+	"parent": ["cf/swiper"],
+	"attributes": {
+		"templateLock": {
+			"enum": [ "all", "insert", false ]
+		}
+	},
+	"supports": {
+		"className": true
+	}
+}

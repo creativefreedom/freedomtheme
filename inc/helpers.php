@@ -67,3 +67,52 @@ function cf_theme_var_map( array $arr, string $arg ): array {
 
 	return $map;
 }
+
+function cf_find_block( $content, $block_name ): array {
+
+	// If no block return false
+	if( ! isset( $content['blockName'] ) ) return [];
+
+	// If this is the correct block return true
+	if( $content['blockName'] === $block_name ) return [$content];
+
+	$blocks = [];
+
+	// If has inner blocks check if they are the right block
+	if( ! empty( $content['innerBlocks'] ) ) {
+
+		foreach( $content['innerBlocks'] as $inner_block ) {
+			$block = cf_find_block( $inner_block, $block_name );
+			if( $block ) $blocks = array_merge( $blocks, $block );
+		}
+	}
+
+	return $blocks;
+}
+
+function cf_find_reusable_block( $block ) {
+
+	if ( $block['blockName'] === 'core/block' && ! empty( $block['attrs']['ref'] ) ) {
+		return $block['attrs']['ref'];
+	}
+
+	// If has inner blocks check if they are the right block
+	if( ! empty( $block['innerBlocks'] ) ) {
+		foreach( $block['innerBlocks'] as $inner_block ) {
+			$reusable_block_id = cf_find_reusable_block( $inner_block );
+			if( $reusable_block_id ) return $reusable_block_id;
+		}
+	}
+
+	return null;
+}
+
+function cf_get_block_id( $block ): string {
+	$html = $block['innerHTML'];
+
+	preg_match('/id="([\w\d-]*)"/', $html, $matches );
+
+	if( empty( $matches[1] ) ) return '';
+
+	return $matches[1];
+}

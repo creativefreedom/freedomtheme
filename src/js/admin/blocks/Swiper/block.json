@@ -1,0 +1,70 @@
+{
+	"apiVersion": 2,
+	"name": "cf/swiper",
+  "icon": "slides",
+	"category": "common",
+	"attributes": {
+    "slidesPerView": {
+			"type": "number",
+			"default": 1
+		},
+		"pagination": {
+			"type": "boolean",
+			"default": false
+		},
+		"paginationPosition": {
+			"enum": [ "top-right", "top-left", "bottom-right", "bottom-left" ],
+			"default": "bottom-right"
+		},
+		"paginationColor": {
+			"type": "string",
+			"default": "none"
+		},
+		"autoplay": {
+			"type": "boolean",
+			"default": true
+		},
+		"loop": {
+			"type": "boolean",
+			"default": true
+		},
+		"speed": {
+			"type": "number",
+			"default": 400
+		},
+		"spaceBetween": {
+			"type": "number",
+			"default": 40
+		},
+		"navigation": {
+			"type": "boolean",
+			"default": false
+		},
+		"scrollbar": {
+			"type": "boolean",
+			"default": false
+		},
+		"edgesVisible": {
+			"type": "boolean",
+			"default": false
+		},
+		"previewVisibility": {
+			"enum": [ "none", "semi", "visible" ],
+			"default": "none"
+		},
+		"blockId": {
+			"type": "string",
+			"default": null
+		}
+	},
+	"supports": {
+		"anchor": true,
+		"align": [ "wide", "full" ],
+		"html": false,
+    "color": {
+			"background": true,
+			"gradients": true,
+			"link": true
+		}
+	}
+}
