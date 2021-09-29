@@ -25,6 +25,8 @@ $container = get_theme_mod( 'cf_container_type' );
 <?php do_action( 'wp_body_open' ); ?>
 <div class="site" id="page">
 
+	<?php get_template_part( 'sidebar-templates/sidebar', 'headerfull' ); ?>
+
 	<!-- ******************* The Navbar Area ******************* -->
 	<div id="wrapper-navbar">
 
