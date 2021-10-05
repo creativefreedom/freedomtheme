@@ -1,0 +1,89 @@
+{
+	"apiVersion": 2,
+	"name": "cf/latest-content",
+	"title": "Latest Content",
+	"category": "widgets",
+	"description": "Display a list of your most recent content.",
+	"keywords": [ "recent content" ],
+	"textdomain": "default",
+	"attributes": {
+		"categories": {
+			"type": "array",
+			"items": {
+				"type": "object"
+			}
+		},
+		"postsToInclude": {
+			"type": "array",
+			"items": {
+				"type": "object"
+			}
+		},
+		"postsToShow": {
+			"type": "number",
+			"default": 2
+		},
+		"displayPostContent": {
+			"type": "boolean",
+			"default": false
+		},
+		"displayPostContentRadio": {
+			"type": "string",
+			"default": "excerpt"
+		},
+		"excerptLength": {
+			"type": "number",
+			"default": 55
+		},
+		"offsetPosts": {
+			"type": "number",
+			"default": 0
+		},
+		"displayPostCategory": {
+			"type": "boolean",
+			"default": true
+		},
+		"columns": {
+			"type": "number",
+			"default": 3
+		},
+		"order": {
+			"type": "string",
+			"default": "desc"
+		},
+		"orderBy": {
+			"type": "string",
+			"default": "date"
+		},
+		"displayFeaturedImage": {
+			"type": "boolean",
+			"default": true
+		},
+		"featuredImageAlign": {
+			"type": "string",
+			"enum": [ "left", "center", "right" ]
+		},
+		"featuredImageSizeSlug": {
+			"type": "string",
+			"default": "large"
+		},
+		"featuredImageSizeWidth": {
+			"type": "number",
+			"default": null
+		},
+		"featuredImageSizeHeight": {
+			"type": "number",
+			"default": null
+		},
+		"addLinkToFeaturedImage": {
+			"type": "boolean",
+			"default": true
+		}
+	},
+	"supports": {
+		"align": true,
+		"html": false
+	},
+	"editorStyle": "wp-block-latest-content-editor",
+	"style": "wp-block-latest-posts"
+}

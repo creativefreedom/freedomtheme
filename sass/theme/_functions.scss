@@ -1,3 +1,18 @@
 @function rem-calc($px) {
 	@return $font-size-base * $px / $font-px-base;
 }
+
+@function _spit-sizes($_sizes) {
+	$size-one: $_sizes;
+	$size-two: $_sizes;
+
+	// Check if list
+	@if (index($_sizes, 2)) {
+		$size-one: nth($_sizes, 1);
+		$size-two: nth($_sizes, 2);
+	}
+
+	$list: ($size-one, $size-two);
+
+	@return $list;
+}

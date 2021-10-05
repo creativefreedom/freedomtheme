@@ -1,0 +1,282 @@
+@mixin wp-block($blockname) {
+	.wp-block-#{$blockname} {
+		@content;
+	}
+}
+
+@mixin cf-block($blockname) {
+	.wp-block-cf-#{$blockname} {
+		@content;
+	}
+}
+
+@mixin wp-style($style) {
+	.is-style-#{$style} {
+		@content;
+	}
+}
+
+@mixin first-content-child() {
+	.entry-content > & {
+		@content;
+	}
+}
+
+@mixin in-page-theme($theme) {
+	.is-#{$theme}-page-theme & {
+		@content;
+	}
+}
+
+@mixin headings() {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@content;
+	}
+}
+
+// New format inline, block
+@mixin margin-inline($size) {
+	$_sizes: _spit-sizes($size);
+	@include margin-inline-start(nth($_sizes, 1));
+	@include margin-inline-end(nth($_sizes, 2));
+}
+
+@mixin margin-inline-start($size) {
+	html:not([dir="rtl"]) & {
+		margin-left: $size;
+	}
+
+	html[dir="rtl"] & {
+		margin-right: $size;
+	}
+}
+
+@mixin margin-inline-end($size) {
+	html:not([dir="rtl"]) & {
+		margin-right: $size;
+	}
+
+	html[dir="rtl"] & {
+		margin-left: $size;
+	}
+}
+
+@mixin margin-block($size) {
+	$_sizes: _spit-sizes($size);
+	@include margin-block-start(nth($_sizes, 1));
+	@include margin-block-end(nth($_sizes, 2));
+}
+
+@mixin margin-block-start($size) {
+	margin-top: $size;
+}
+
+@mixin margin-block-end($size) {
+	margin-bottom: $size;
+}
+
+@mixin padding-inline($size) {
+	$_sizes: _spit-sizes($size);
+	@include padding-inline-start(nth($_sizes, 1));
+	@include padding-inline-end(nth($_sizes, 2));
+}
+
+@mixin padding-inline-start($size) {
+	html:not([dir="rtl"]) & {
+		padding-left: $size;
+	}
+
+	html[dir="rtl"] & {
+		padding-right: $size;
+	}
+}
+
+@mixin padding-inline-end($size) {
+	html:not([dir="rtl"]) & {
+		padding-right: $size;
+	}
+
+	html[dir="rtl"] & {
+		padding-left: $size;
+	}
+}
+
+@mixin padding-block($size) {
+	$_sizes: _spit-sizes($size);
+	@include padding-block-start(nth($_sizes, 1));
+	@include padding-block-end(nth($_sizes, 2));
+}
+
+@mixin padding-block-start($size) {
+	padding-top: $size;
+}
+
+@mixin padding-block-end($size) {
+	padding-bottom: $size;
+}
+
+// Border
+@mixin border-inline($prop) {
+	$props: _spit-sizes($prop);
+	@include border-inline-start(nth($props, 1));
+	@include border-inline-end(nth($props, 2));
+}
+
+@mixin border-inline-start($prop) {
+	html:not([dir="rtl"]) & {
+		border-left: $prop;
+	}
+
+	html[dir="rtl"] & {
+		border-right: $prop;
+	}
+}
+
+@mixin border-inline-end($prop) {
+	html:not([dir="rtl"]) & {
+		border-right: $prop;
+	}
+
+	html[dir="rtl"] & {
+		border-left: $prop;
+	}
+}
+
+@mixin border-inline-color($prop) {
+	$props: _spit-sizes($prop);
+	@include border-inline-start-color(nth($props, 1));
+	@include border-inline-end-color(nth($props, 2));
+}
+
+@mixin border-inline-start-color($prop) {
+	html:not([dir="rtl"]) & {
+		border-left-color: $prop;
+	}
+
+	html[dir="rtl"] & {
+		border-right-color: $prop;
+	}
+}
+
+@mixin border-inline-end-color($prop) {
+	html:not([dir="rtl"]) & {
+		border-right-color: $prop;
+	}
+
+	html[dir="rtl"] & {
+		border-left-color: $prop;
+	}
+}
+
+@mixin border-inline-style($prop) {
+	$props: _spit-sizes($prop);
+	@include border-inline-start-style(nth($props, 1));
+	@include border-inline-end-style(nth($props, 2));
+}
+
+@mixin border-inline-start-style($prop) {
+	html:not([dir="rtl"]) & {
+		border-left-style: $prop;
+	}
+
+	html[dir="rtl"] & {
+		border-right-style: $prop;
+	}
+}
+
+@mixin border-inline-end-style($prop) {
+	html:not([dir="rtl"]) & {
+		border-right-color: $prop;
+	}
+
+	html[dir="rtl"] & {
+		border-left-color: $prop;
+	}
+}
+
+@mixin border-inline-width($prop) {
+	$props: _spit-sizes($prop);
+	@include border-inline-start-width(nth($props, 1));
+	@include border-inline-end-width(nth($props, 2));
+}
+
+@mixin border-inline-start-width($prop) {
+	html:not([dir="rtl"]) & {
+		border-left-width: $prop;
+	}
+
+	html[dir="rtl"] & {
+		border-right-width: $prop;
+	}
+}
+
+@mixin border-inline-end-width($prop) {
+	html:not([dir="rtl"]) & {
+		border-right-color: $prop;
+	}
+
+	html[dir="rtl"] & {
+		border-left-color: $prop;
+	}
+}
+
+@mixin border-block($prop) {
+	$props: _spit-sizes($prop);
+	@include border-block-start(nth($props, 1));
+	@include border-block-end(nth($props, 2));
+}
+
+@mixin border-block-start($prop) {
+	border-top: $prop;
+}
+
+@mixin border-block-end($prop) {
+	border-bottom: $prop;
+}
+
+@mixin border-block-color($prop) {
+	$props: _spit-sizes($prop);
+	@include border-block-start-color(nth($props, 1));
+	@include border-block-end-color(nth($props, 2));
+}
+
+@mixin border-block-start-color($prop) {
+	border-top-color: $prop;
+}
+
+@mixin border-block-end-color($prop) {
+	border-bottom-color: $prop;
+}
+
+@mixin border-block-style($prop) {
+	$props: _spit-sizes($prop);
+	@include border-block-start-style(nth($props, 1));
+	@include border-block-end-style(nth($props, 2));
+}
+
+@mixin border-block-start-style($prop) {
+	border-top-style: $prop;
+}
+
+@mixin border-block-end-style($prop) {
+	border-bottom-style: $prop;
+}
+
+@mixin border-block-width($prop) {
+	$props: _spit-sizes($prop);
+	@include border-block-start-width(nth($props, 1));
+	@include border-block-end-width(nth($props, 2));
+}
+
+@mixin border-block-start-width($prop) {
+	border-top-width: $prop;
+}
+
+@mixin border-block-end-width($prop) {
+	border-bottom-width: $prop;
+}

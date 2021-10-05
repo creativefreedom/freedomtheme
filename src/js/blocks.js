@@ -1,3 +1,4 @@
+import * as LatestContent from './admin/blocks/LatestContent';
 import * as Swiper from './admin/blocks/Swiper';
 import * as SwiperSlide from './admin/blocks/SwiperSlide';
 
@@ -17,7 +18,7 @@ const registerBlock = (block) => {
 
 	registerBlockType(name, Object.assign(metadata, settings));
 };
-[Swiper, SwiperSlide].forEach(registerBlock);
+[LatestContent, Swiper, SwiperSlide].forEach(registerBlock);
 
 // Block styles
 wp.domReady(function () {
