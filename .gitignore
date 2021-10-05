@@ -45,7 +45,8 @@
 bower_components
 node_modules
 vendor
-!src/sass/bootstrap4/vendor
+!src/sass/vendor/bootstrap4/vendor
+!src/sass/vendor
 
 # Other FreedomTheme specific files and directories
 phpcs.xml

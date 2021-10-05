@@ -189,7 +189,7 @@ class CF_Compiler {
 
 		// Copy all Bootstrap SCSS files
 		src(`${paths.node}bootstrap/scss/**/*.scss`)
-			.pipe(dest(`${paths.dev}/sass/bootstrap4`));
+			.pipe(dest(`${paths.dev}/sass/vendor/bootstrap4`));
 
 		////////////////// End Bootstrap 4 Assets /////////////////////////
 

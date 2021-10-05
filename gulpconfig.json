@@ -10,7 +10,7 @@
 		"fonts": "./fonts",
 		"img": "./img",
 		"imgsrc": "./src/img",
-		"sass": "./sass",
+		"sass": "./src/sass",
 		"node": "./node_modules",
 		"composer": "./vendor",
 		"dev": "./src",

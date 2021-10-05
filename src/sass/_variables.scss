@@ -1,0 +1,55 @@
+$spacer: 1rem;
+
+$coral: #ff7a80;
+$blue: #8bbbe6;
+$black: #000;
+$white: #fff;
+
+$colours: (
+	"coral": $coral,
+	"blue": $blue,
+	"black": $black,
+	"white": $white,
+);
+
+$primary: $coral;
+$secondary: $blue;
+
+// Gradients
+$gradients: (
+	("coral", #f47598, #ff9474),
+	("blue", #a7d9e7, #638fe1),
+	("green", #a9e993, #76bd94)
+);
+
+// Layout
+$grid-breakpoints: (
+	xs: 0,
+	sm: 599px,
+	md: 781px,
+	//Adjusted for gutenberg breakpoints
+	lg: 992px,
+	//Adjusted for gutenberg breakpoints
+	xl: 1200px,
+);
+$container-max-widths: (
+	sm: 563px,
+	md: 720px,
+	//Adjusted for gutenberg breakpoints
+	lg: 960px,
+	//Adjusted for gutenberg breakpoints
+	xl: 1140px,
+);
+
+// Fonts
+$font-sizes: (
+	"small": 14px,
+	"regular": 16px,
+	"medium": 20px,
+	"large": 26px,
+	"huge": 34px,
+);
+
+$font-family-sans-serif: "Hind", sans-serif;
+$font-px-base: 16;
+$spacer: 1rem;

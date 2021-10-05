@@ -1,0 +1,22 @@
+// Theme variables
+@import "variables";
+
+// Functions, mixins and resets
+@import "functions";
+@import "reset";
+@import "mixins";
+
+// SCSS utils
+@import "util";
+
+// Load bootstrap Font awesome and any other dependencies
+@import "vendor";
+// Loads the FreedomTheme defaults. Just a few classes to incorporate BS in WP
+@import "defaults";
+
+// Loads WooCommerce style fixes. Comment out if you aren't using WooCommerce
+@import "woocommerce";
+
+// Any additional imported files //
+@import "layout";
+@import "blocks";
