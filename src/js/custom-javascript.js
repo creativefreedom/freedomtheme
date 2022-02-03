@@ -35,5 +35,5 @@
 		}
 	}
 
-	new ETUApp;
+	new CFApp;
 })();

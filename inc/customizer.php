@@ -129,6 +129,6 @@ function cf_theme_customize_register( $wp_customize ) {
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
 function cf_customize_preview_js() {
-	cf_enqueue_script( 'cf_customizer', get_template_directory_uri() . '/js/customizer.js', ['customize-preview'], true );
+	cf_enqueue_script( 'cf_customizer', get_template_directory_uri() . '/dist/customizer.js', ['customize-preview'], true );
 }
 add_action( 'customize_preview_init', 'cf_customize_preview_js' );

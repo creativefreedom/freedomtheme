@@ -32,6 +32,7 @@
 *.lock
 # but track
 !composer.lock
+!.gitkeep
 
 # OS or Editor files and folders
 *.code-workspace
@@ -50,6 +51,5 @@ vendor
 
 # Other FreedomTheme specific files and directories
 phpcs.xml
-dist/
-dist-product/
-**/img
+dist/*
+!dist/.gitkeep

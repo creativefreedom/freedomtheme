@@ -6,9 +6,9 @@
   "scripts": {
     "start": "gulp watch-bs",
     "dev": "gulp watch",
-    "dev:blocks": "parcel watch src/js/blocks.js  --no-hmr --out-dir js",
+    "dev:blocks": "parcel watch src/js/blocks.js  --no-hmr --out-dir dist",
     "build": "gulp compile && npm run build:blocks",
-    "build:blocks": "parcel build src/js/blocks.js  --no-source-maps --out-dir js",
+    "build:blocks": "parcel build src/js/blocks.js  --no-source-maps --out-dir dist",
     "postinstall": "gulp copy-assets"
   },
   "engines": {
@@ -41,6 +41,7 @@
     "font-awesome": "^4.7.0",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
+    "gulp-clean": "^0.4.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-concat": "^2.6.1",
     "gulp-imagemin": "^7.1.0",

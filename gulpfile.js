@@ -12,6 +12,7 @@ const imagemin = require('gulp-imagemin');
 const browserSync = require('browser-sync').create();
 const postcss = require('gulp-postcss');
 const sourcemaps = require('gulp-sourcemaps');
+const clean = require('gulp-clean');
 
 // Configuration file to keep your code DRY
 const { paths, browserSyncWatchFiles, browserSyncOptions } = require('./gulpconfig.json');
@@ -28,6 +29,9 @@ class CF_Compiler {
 		task('browser-sync', this.sync);
 		task('scripts', this.compileScripts);
 		task('copy-assets', this.copyAssets);
+		task('fonts', this.copyFonts);
+		task('clean', this.cleanDist);
+		task('customiser', this.copyCustomiser);
 
 		/**
 		 * @run gulp imagemin-watch
@@ -45,13 +49,13 @@ class CF_Compiler {
 		 * @run gulp watch-bs
 		 * Starts watcher with browser-sync. Browser-sync reloads page automatically on your browser
 		 */
-		task('watch-bs', parallel('browser-sync', 'watch', 'scripts'));
+		task('watch-bs', parallel('browser-sync', 'watch', 'scripts', 'fonts', 'customiser'));
 
 		/**
 		 * @run gulp compile
 		 * Compiles styles scripts and images
 		 */
-		task('compile', series('styles', 'scripts', 'imagemin'));
+		task('compile', series('styles', 'scripts', 'imagemin', 'fonts', 'customiser'));
 	}
 
 	/**
@@ -60,10 +64,10 @@ class CF_Compiler {
 	 */
 	watchFiles() {
 		watch(`${paths.sass}/**/*.scss`, series('styles'));
-		watch([`${paths.dev}/js/**/*.js`, 'js/**/*.js', '!js/theme.js', '!js/theme.min.js'], series('scripts'));
+		watch([`${paths.js}/**/*.js`, 'js/**/*.js', '!js/theme.js', '!js/theme.min.js'], series('scripts'));
 
 		//Inside the watch task.
-		watch(`${paths.imgsrc} /**`, series('imagemin-watch'));
+		watch(`${paths.img} /**`, series('imagemin-watch'));
 	}
 
 	/**
@@ -90,7 +94,7 @@ class CF_Compiler {
 			.pipe(sass({ errLogToConsole: true }))
 			.pipe(postcss([autoprefixer()]))
 			.pipe(sourcemaps.write(undefined, { sourceRoot: null }))
-			.pipe(dest(paths.css))
+			.pipe(dest(paths.dist))
 			.pipe(rename('custom-editor-style.css'));
 
 		return stream;
@@ -102,8 +106,8 @@ class CF_Compiler {
 	 */
 	minifyCss() {
 		return src([
-			`${paths.css}/custom-editor-style.css`,
-			`${paths.css}/theme.css`,
+			`${paths.dist}/custom-editor-style.css`,
+			`${paths.dist}/theme.css`,
 		])
 			.pipe(sourcemaps.init({ loadMaps: true }))
 			.pipe(cleanCSS({ compatibility: '*' }))
@@ -115,7 +119,7 @@ class CF_Compiler {
 			}))
 			.pipe(rename({ suffix: '.min' }))
 			.pipe(sourcemaps.write('./'))
-			.pipe(dest(paths.css));
+			.pipe(dest(paths.dist));
 	}
 
 	/**
@@ -124,12 +128,12 @@ class CF_Compiler {
 	 */
 	compileScripts() {
 		const scripts = [
-			`${paths.dev}/js/bootstrap4/bootstrap.bundle.js`, // All BS4 stuff
-			`${paths.dev}//js/themejs/*.js`, // All BS4 stuff
-			`${paths.dev}/js/skip-link-focus-fix.js`,
+			`${paths.js}/bootstrap4/bootstrap.bundle.js`, // All BS4 stuff
+			`${paths.js}/themejs/*.js`, // All BS4 stuff
+			`${paths.js}/skip-link-focus-fix.js`,
 			// Adding currently empty javascript file to add on for your own themes´ customizations
 			// Please add any customizations to this .js file only!
-			`${paths.dev}/js/custom-javascript.js`,
+			`${paths.js}/custom-javascript.js`,
 		];
 
 		src(scripts, { allowEmpty: true })
@@ -139,12 +143,12 @@ class CF_Compiler {
 			}))
 			.pipe(concat('theme.min.js'))
 			.pipe(uglify())
-			.pipe(dest(paths.js));
+			.pipe(dest(paths.dist));
 
 		return src(scripts, { allowEmpty: true })
 			.pipe(babel())
 			.pipe(concat('theme.js'))
-			.pipe(dest(paths.js));
+			.pipe(dest(paths.dist));
 	}
 
 	/**
@@ -152,7 +156,7 @@ class CF_Compiler {
 	 * Running image optimizing task
 	 */
 	optimiseImages() {
-		return src(`${paths.imgsrc}/**`)
+		return src(`${paths.img}/**`)
 			.pipe(
 				imagemin(
 					[
@@ -173,7 +177,7 @@ class CF_Compiler {
 					}
 				)
 			)
-			.pipe(dest(paths.img));
+			.pipe(dest(paths.dist));
 	}
 
 	/**
@@ -185,7 +189,7 @@ class CF_Compiler {
 		////////////////// All Bootstrap 4 Assets /////////////////////////
 		// Copy all JS files
 		var stream = src(`${paths.node}bootstrap/dist/js/**/*.js`)
-			.pipe(dest(`${paths.dev}/js/bootstrap4`));
+			.pipe(dest(`${paths.js}/bootstrap4`));
 
 		// Copy all Bootstrap SCSS files
 		src(`${paths.node}bootstrap/scss/**/*.scss`)
@@ -196,6 +200,30 @@ class CF_Compiler {
 		return stream;
 	}
 
+	/**
+	 * @run gulp fonts
+	 * Copy fonts to dist
+	 */
+	copyFonts() {
+		const inputs = ['eot', 'svg', 'ttf', 'woff', 'woff2'].map(ext => `${paths.fonts}/**/*.${ext}`);
+		return compiler._copy(inputs);
+	}
+
+	copyCustomiser() {
+		return compiler._copy(`${paths.js}/customizer.js`)
+	}
+
+	cleanDist() {
+		return src([
+			`${paths.dist}/*`,
+			`!${paths.dist}/.gitkeep`])
+			.pipe(clean())
+	}
+
+	_copy(inputs, dist = null) {
+		return src(inputs).pipe(dest(dist || paths.dist))
+	}
+
 }
 
-new CF_Compiler();
+const compiler = new CF_Compiler();

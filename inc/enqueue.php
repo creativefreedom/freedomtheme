@@ -14,12 +14,12 @@ defined( 'ABSPATH' ) || exit;
 require_once plugin_dir_path( __FILE__ ) . 'classes/swiper.php';
 
 function cf_theme_scripts() {
-	cf_enqueue_style( 'cf-theme-styles', get_template_directory_uri() . '/css/theme.min.css' );
+	cf_enqueue_style( 'cf-theme-styles', get_template_directory_uri() . '/dist/theme.min.css' );
 
 	wp_enqueue_script( 'jquery' );
 
 	wp_enqueue_script( 'swiper', 'https://unpkg.com/swiper/swiper-bundle.min.js' );
-	cf_enqueue_script( 'cf-theme-scripts', get_template_directory_uri() . '/js/theme.min.js', ['swiper'], true );
+	cf_enqueue_script( 'cf-theme-scripts', get_template_directory_uri() . '/dist/theme.min.js', ['swiper'], true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -30,8 +30,8 @@ add_action( 'wp_enqueue_scripts', 'cf_theme_scripts' );
 
 // editor scripts
 function cf_frontend_editor() {
-	cf_enqueue_style( 'cf-blocks-css', get_stylesheet_directory_uri() . '/js/blocks.css' );
-	cf_enqueue_script( 'cf-blocks-js', get_stylesheet_directory_uri() .  '/js/blocks.js', ['wp-blocks', 'wp-dom-ready', 'wp-edit-post'] );
+	cf_enqueue_style( 'cf-blocks-css', get_stylesheet_directory_uri() . '/dist/blocks.css' );
+	cf_enqueue_script( 'cf-blocks-js', get_stylesheet_directory_uri() .  '/dist/blocks.js', ['wp-blocks', 'wp-dom-ready', 'wp-edit-post'] );
 }
 add_action( 'enqueue_block_assets', 'cf_frontend_editor' );
 
