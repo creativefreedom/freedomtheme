@@ -82,3 +82,22 @@
 		margin-bottom: 0;
 	}
 }
+
+.error404 {
+	#wrapper-404 {
+		main {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			min-height: 60vh;
+
+			h1 {
+				font-size: rem-calc(100);
+				line-height: 1;
+				margin-bottom: 0;
+				display: flex;
+				align-items: baseline;
+			}
+		}
+	}
+}
