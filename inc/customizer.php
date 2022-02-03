@@ -123,7 +123,7 @@ function cf_theme_customize_register( $wp_customize ) {
 	);
 }
 
-add_action( 'customize_register', 'cf_theme_customize_register' );
+// add_action( 'customize_register', 'cf_theme_customize_register' );
 
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.

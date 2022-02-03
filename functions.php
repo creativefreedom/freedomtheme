@@ -12,8 +12,7 @@ defined( 'ABSPATH' ) || exit;
 $cf_inc_dir = get_template_directory() . '/inc';
 
 // Array of files to include.
-$cf_includes = array(
-	'/theme-settings.php',                  // Initialize theme default settings.
+$cf_includes = [
 	'/setup.php',                           // Theme setup and custom theme supports.
 	'/helpers.php',                         // Add helper functions.
 	'/widgets.php',                         // Register widget area.
@@ -28,7 +27,7 @@ $cf_includes = array(
 	'/custom-comments.php',                 // Custom Comments file.
 	'/class-wp-bootstrap-navwalker.php',    // Load custom WordPress nav walker. Trying to get deeper navigation? Check out: https://github.com/cf/cf/issues/567.
 	'/editor.php',                          // Load Editor functions.
-);
+];
 
 // Include files.
 foreach ( $cf_includes as $file ) {
