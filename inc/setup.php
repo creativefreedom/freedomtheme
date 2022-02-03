@@ -113,9 +113,6 @@ function cf_theme_setup() {
 
 	add_theme_support( 'editor-styles' );
 
-	// Check and setup theme default settings.
-	cf_setup_theme_default_settings();
-
 	// Setup colours
 	$colours = [
 		'coral' => '#FF7A80',

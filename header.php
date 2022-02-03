@@ -10,7 +10,6 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-$container = get_theme_mod( 'cf_container_type' );
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -38,9 +37,7 @@ $container = get_theme_mod( 'cf_container_type' );
 				<?php esc_html_e( 'Main Navigation', 'freedomtheme' ); ?>
 			</h2>
 
-		<?php if ( 'container' === $container ) : ?>
 			<div class="container">
-		<?php endif; ?>
 
 					<!-- Your site title as branding in the menu -->
 					<?php if ( ! has_custom_logo() ) { ?>
@@ -69,7 +66,7 @@ $container = get_theme_mod( 'cf_container_type' );
 				<!-- The WordPress Menu goes here -->
 				<?php
 				wp_nav_menu(
-					array(
+					[
 						'theme_location'  => 'primary',
 						'container_class' => 'collapse navbar-collapse',
 						'container_id'    => 'navbarNavDropdown',
@@ -78,12 +75,11 @@ $container = get_theme_mod( 'cf_container_type' );
 						'menu_id'         => 'main-menu',
 						'depth'           => 2,
 						'walker'          => new Understrap_WP_Bootstrap_Navwalker(),
-					)
+					]
 				);
 				?>
-			<?php if ( 'container' === $container ) : ?>
+
 			</div><!-- .container -->
-			<?php endif; ?>
 
 		</nav><!-- .site-navigation -->
 
