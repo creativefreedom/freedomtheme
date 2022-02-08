@@ -1,27 +1,17 @@
-/**
- * External dependencies
- */
-import classnames from 'classnames';
-import { dropRight, get, times } from 'lodash';
+import { get } from 'lodash';
 
 /**
  * WordPress dependencies
  */
-const { __ } = wp.i18n;
-const { PanelBody, RangeControl, Notice } = wp.components;
-
 const {
-	InspectorControls,
-	__experimentalUseInnerBlocksProps: useInnerBlocksProps,
-	BlockControls,
-	BlockVerticalAlignmentToolbar,
-	__experimentalBlockVariationPicker,
 	useBlockProps,
 	store: blockEditorStore,
 } = wp.blockEditor;
-const { withDispatch, useDispatch, useSelect } = wp.data;
+
+const BlockVariationPicker = wp.blockEditor?.BlockVariationPicker || wp.blockEditor.__experimentalBlockVariationPicker
+
+const { useDispatch, useSelect } = wp.data;
 const {
-	createBlock,
 	createBlocksFromInnerBlocksTemplate,
 	store: blocksStore,
 } = wp.blocks;
@@ -49,7 +39,7 @@ export default function Placeholder({ clientId, name, setAttributes }) {
 
 	return (
 		<div {...blockProps}>
-			<__experimentalBlockVariationPicker
+			<BlockVariationPicker
 				icon={get(blockType, ['icon', 'src'])}
 				label={get(blockType, ['title'])}
 				variations={variations}

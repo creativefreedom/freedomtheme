@@ -35,10 +35,12 @@ const { __ } = wp.i18n;
 const {
 	InspectorControls,
 	BlockAlignmentToolbar,
-	__experimentalImageSizeControl: ImageSizeControl,
 	useBlockProps,
 	store: blockEditorStore,
 } = wp.blockEditor;
+
+const ImageSizeControl = wp.blockEditor?.ImageSizeControl || wp.blockEditor.__experimentalImageSizeControl;
+
 const { useSelect } = wp.data;
 
 const { store: coreStore } = wp.coreData;

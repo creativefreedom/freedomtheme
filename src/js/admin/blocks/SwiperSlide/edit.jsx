@@ -6,10 +6,9 @@ import classnames from 'classnames/bind';
 const {
 	InnerBlocks,
 	useBlockProps,
-	__experimentalUseInnerBlocksProps: useInnerBlocksProps,
 	store: blockEditorStore,
 } = wp.blockEditor;
-
+const useInnerBlocksProps = wp.blockEditor?.useInnerBlocksProps || wp.blockEditor.__experimentalUseInnerBlocksProps;
 const { useSelect } = wp.data;
 
 const SwiperSlideEdit = ({ attributes: { templateLock = false, className }, clientId }) => {

@@ -1,22 +1,23 @@
-/**
- * External dependencies
- */
-import classnames from "classnames";
-import { dropRight, get, times } from "lodash";
-import Swiper from 'swiper'
 import "swiper/swiper-bundle.css";
 import "./styles.css";
+
+import { dropRight, get, times } from "lodash";
+import {
+	getMappedColumnWidths,
+	getRedistributedColumnWidths,
+	hasExplicitPercentColumnWidths,
+	toWidthPrecision,
+} from "./utils";
 
 /**
  * Internal dependencies
  */
 import Placeholder from "./placeholder";
-import {
-	hasExplicitPercentColumnWidths,
-	getMappedColumnWidths,
-	getRedistributedColumnWidths,
-	toWidthPrecision,
-} from "./utils";
+import Swiper from 'swiper'
+/**
+ * External dependencies
+ */
+import classnames from "classnames";
 
 /**
  * WordPress dependencies
@@ -25,11 +26,11 @@ const { __ } = wp.i18n;
 const { Fragment, useEffect, useState } = wp.element;
 const {
 	InspectorControls,
-	__experimentalUseInnerBlocksProps: useInnerBlocksProps,
 	BlockControls,
 	useBlockProps,
 	store: blockEditorStore,
 } = wp.blockEditor;
+const useInnerBlocksProps = wp.blockEditor?.useInnerBlocksProps || wp.blockEditor.__experimentalUseInnerBlocksProps;
 const {
 	PanelBody,
 	BaseControl,
