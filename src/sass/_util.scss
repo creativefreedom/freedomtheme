@@ -36,5 +36,7 @@
 @each $name, $size in $font-sizes {
 	.has-#{$name}-font-size {
 		font-size: $size;
+		--wp--preset--font-size--#{$name}: #{$size};
+
 	}
 }
