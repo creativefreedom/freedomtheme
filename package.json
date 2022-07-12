@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "gulp watch-bs",
-    "dev": "gulp watch",
+    "dev": "gulp develop",
     "dev:blocks": "parcel watch src/js/blocks.js  --no-hmr --out-dir dist",
     "build": "gulp compile && npm run build:blocks",
     "build:blocks": "parcel build src/js/blocks.js  --no-source-maps --out-dir dist",
@@ -49,15 +49,17 @@
     "gulp-postcss": "^9.0.0",
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^4.1.0",
+    "gulp-sass-glob": "^1.1.0",
     "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify": "^3.0.2",
     "parcel-bundler": "^1.12.5",
     "postcss": "^8.2.9",
-    "sass": "^1.38.2"
+    "sass": "^1.38.2",
+    "through2": "^4.0.2"
   },
   "dependencies": {
+    "@wordpress/icons": "^8.4.0",
     "classnames": "^2.3.1",
-    "lodash": "^4.17.21",
     "swiper": "^6.8.0"
   }
 }

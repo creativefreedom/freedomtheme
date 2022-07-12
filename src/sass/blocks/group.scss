@@ -1,5 +1,5 @@
-.wp-block-group {
-  &.has-background {
-    padding: $spacer*2;
-  }
+@include wp-block(group) {
+	&.has-background {
+		padding: $spacer*2;
+	}
 }

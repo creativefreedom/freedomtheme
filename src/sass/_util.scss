@@ -1,7 +1,7 @@
-@each $name, $color in $colours {
-	.has-#{$name}-color {
-		color: $color;
-	}
+@each $name, $color in $colors {
+	// .has-#{$name}-color {
+	// 	color: $color;
+	// }
 
 	.has-#{$name}-background,
 	.has-#{$name}-background-color {
@@ -9,34 +9,11 @@
 		&:not(.has-text-color) {
 			color: color-yiq($color);
 		}
-		&.is-style-coloured-card {
-			background-color: rgba($color,.9);
-		}
 	}
-  
+
 	.has-#{name}-border,
 	.has-#{name}-border-color {
 		border-color: $color;
 	}
 
-
-}
-
-@each $value in $gradients {
-
-	.has-#{nth($value,1)}-gradient-background {
-    background: linear-gradient(175deg,nth($value,2) 0%,nth($value,3) 100%);
-		&:not(.has-text-color) {
-			color: color-yiq(nth($value,2));
-		}
-	}
-	
-}
-
-@each $name, $size in $font-sizes {
-	.has-#{$name}-font-size {
-		font-size: $size;
-		--wp--preset--font-size--#{$name}: #{$size};
-
-	}
 }

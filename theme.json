@@ -1,0 +1,92 @@
+{
+	"version": 2,
+	"settings": {
+		"color": {
+			"custom": false,
+			"defaultPalette": false,
+			"palette": [
+				{
+					"name": "Coral",
+					"slug": "coral",
+					"color": "#FF7A80"
+				},
+				{
+					"name": "Blue",
+					"slug": "blue",
+					"color": "#8BBBE6"
+				},
+				{
+					"name": "Black",
+					"slug": "black",
+					"color": "#000"
+				},
+				{
+					"name": "White",
+					"slug": "white",
+					"color": "#FFF"
+				}
+			],
+			"gradients": [
+				{
+					"name": "Coral",
+					"slug": "coral",
+					"gradient": "linear-gradient(175deg, #F47598 0%, #FF9474 100%)"
+				},
+				{
+					"name": "Blue",
+					"slug": "blue",
+					"gradient": "linear-gradient(175deg, #A7D9E7 0%, #638FE1 100%)"
+				},
+				{
+					"name": "Green",
+					"slug": "green",
+					"gradient": "linear-gradient(175deg, #A9E993 0%, #76BD94 100%)"
+				}
+			],
+			"customGradient": false
+		},
+		"typography": {
+			"dropCap": false,
+			"fontSizes": [
+				{
+					"name": "Small",
+					"slug": "small",
+					"size": "12px"
+				},
+				{
+					"name": "Normal",
+					"slug": "normal",
+					"size": "16px",
+					"default": true
+				},
+				{
+					"name": "Large",
+					"slug": "large",
+					"size": "36px"
+				},
+				{
+					"name": "Extra Large",
+					"slug": "extra-large",
+					"size": "50px"
+				}
+			],
+			"fontFamilies": [
+				{
+					"name": "Hind",
+					"slug": "sans-serif",
+					"fontFamily": "'Hind', sans-serif",
+					"default": true
+				}
+			]
+		},
+		"layout": {
+			"contentSize": "1100px",
+			"wideSize": "1280px"
+		}
+	},
+	"styles": {
+		"typography": {
+			"fontFamily": "'Hind', sans-serif"
+		}
+	}
+}

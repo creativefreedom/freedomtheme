@@ -91,16 +91,16 @@ function cf_theme_setup() {
 	);
 
 	// Set up the WordPress core custom background feature.
-	add_theme_support(
-		'custom-background',
-		apply_filters(
-			'cf_custom_background_args',
-			[
-				'default-color' => 'ffffff',
-				'default-image' => '',
-			]
-		)
-	);
+	// add_theme_support(
+	// 	'custom-background',
+	// 	apply_filters(
+	// 		'cf_custom_background_args',
+	// 		[
+	// 			'default-color' => 'ffffff',
+	// 			'default-image' => '',
+	// 		]
+	// 	)
+	// );
 
 	// Register support for Gutenberg wide images in your theme
 	add_theme_support( 'align-wide' );
@@ -114,44 +114,49 @@ function cf_theme_setup() {
 	add_theme_support( 'editor-styles' );
 
 	// Setup colours
-	$colours = [
-		'coral' => '#FF7A80',
-		'blue' => '#8BBBE6',
-		'black' => '#000',
-		'white' => '#FFF',
-	];
+	// $colours = [
+	// 	'coral' => '#FF7A80',
+	// 	'blue' => '#8BBBE6',
+	// 	'black' => '#000',
+	// 	'white' => '#FFF',
+	// ];
 
-	add_theme_support( 'editor-color-palette', cf_theme_var_map( $colours, 'color' ) );
+	// add_theme_support( 'editor-color-palette', cf_theme_var_map( $colours, 'color' ) );
 
 	// Setup gradients
-	$gradients = [
-		'coral' =>    ['#F47598','#FF9474'],
-		'blue' =>    ['#A7D9E7','#638FE1'],
-		'green' =>    ['#A9E993','#76BD94'],
-	];
+	// $gradients = [
+	// 	'coral' =>    ['#F47598','#FF9474'],
+	// 	'blue' =>    ['#A7D9E7','#638FE1'],
+	// 	'green' =>    ['#A9E993','#76BD94'],
+	// ];
 
-	foreach($gradients as $label => $colours) {
-			$gradient_map[] = array(
-					'name'     => $label,
-					'gradient' => 'linear-gradient(175deg,'.$colours[0].' 0%,'.$colours[1].' 100%)',
-					'slug'     => strtolower(str_replace(' ', '-', $label)),
-			);
-	}
+	// foreach($gradients as $label => $colours) {
+	// 		$gradient_map[] = array(
+	// 				'name'     => $label,
+	// 				'gradient' => 'linear-gradient(175deg,'.$colours[0].' 0%,'.$colours[1].' 100%)',
+	// 				'slug'     => strtolower(str_replace(' ', '-', $label)),
+	// 		);
+	// }
 
-	if(! empty($gradient_map) ) {
-			add_theme_support( 'editor-gradient-presets', $gradient_map );
-	}
+	// if(! empty($gradient_map) ) {
+	// 		add_theme_support( 'editor-gradient-presets', $gradient_map );
+	// }
 
 	// Setup Sizes
-	$sizes = [
-		'Small'		=>	12,
-		'Regular'	=>	16,
-		'Large'		=>	36,
-		'Huge'		=>	50
-	];
+	// $sizes = [
+	// 	'Small'		=>	12,
+	// 	'Regular'	=>	16,
+	// 	'Large'		=>	36,
+	// 	'Huge'		=>	50
+	// ];
 
-	add_theme_support( 'editor-font-sizes', cf_theme_var_map( $sizes, 'size' ) );
+	// add_theme_support( 'editor-font-sizes', cf_theme_var_map( $sizes, 'size' ) );
 
+	add_theme_support( 'wp-block-styles' );
+
+	// add_editor_style( 'css/custom-editor-style.min.css' );
+
+	remove_filter( 'the_content', 'wptexturize' );
 }
 
 

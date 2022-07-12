@@ -12,7 +12,7 @@ defined( 'ABSPATH' ) || exit;
  * Registers an editor stylesheet for the theme.
  */
 function cf_wpdocs_theme_add_editor_styles() {
-	add_editor_style( 'css/custom-editor-style.min.css' );
+	add_editor_style( 'dist/custom-editor-style.min.css' );
 }
 
 add_action( 'admin_init', 'cf_wpdocs_theme_add_editor_styles' );

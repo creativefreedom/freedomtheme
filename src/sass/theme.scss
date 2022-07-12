@@ -1,4 +1,5 @@
 // Theme variables
+@import "wp";
 @import "variables";
 
 // Functions, mixins and resets
@@ -15,7 +16,7 @@
 @import "defaults";
 
 // Loads WooCommerce style fixes. Comment out if you aren't using WooCommerce
-@import "woocommerce";
+// @import "woocommerce";
 
 // Any additional imported files //
 @import "layout";

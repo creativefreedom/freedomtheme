@@ -1,0 +1,19 @@
+// Colors
+$coral: #FF7A80;
+$blue: #8BBBE6;
+$black: #000;
+$white: #FFF;
+$colors: (
+"coral": $coral,
+"blue": $blue,
+"black": $black,
+"white": $white,
+);
+$primary: $coral;
+$secondary: $blue;
+// Typography
+$font-family-sans-serif: var(--wp--preset--font-family--sans-serif);
+$font-family-base: 'Hind', sans-serif;
+$line-height-base: 1.5;
+$layout-size-content: 1100px;
+$layout-size-wide: 1280px;
